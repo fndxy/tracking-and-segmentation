@@ -1,6 +1,7 @@
 syntax: glob
 vis/*
 tmp/*
+TUD-Campus.zip
 *.m~
 *.gif
 *.bmp
