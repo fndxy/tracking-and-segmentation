@@ -73,6 +73,28 @@ end
 
 %%
 %%%%%%%%%%%%%%%%%%
+%%% kmeans %%%
+%%%%%%%%%%%%%%%%%%
+try
+    fprintf('Installing TSP\n');
+    if ~exist(['external/TSP/mex/split_move.',mexext],'file')
+        cd external/TSP
+        compile_MEX
+        cd(segdir);
+        
+        fprintf('Success!\n');
+    else
+        fprintf('IGNORE. Already exist\n');
+    end
+    
+catch err
+    fprintf('FAILED: TSP not installed! %s\n',err.message);
+    nerrors=nerrors+1;
+    cd(segdir)
+end
+
+%%
+%%%%%%%%%%%%%%%%%%
 %%% liblinear %%%
 %%%%%%%%%%%%%%%%%%
 % This one is optional

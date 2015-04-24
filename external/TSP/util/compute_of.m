@@ -1,8 +1,8 @@
 function [] = compute_of(oim0, oim1, outname)
 
 % add the optical flow path
-addpath('optical_flow_celiu/');
-addpath('optical_flow_celiu/mex/');
+%  addpath('optical_flow_celiu/');
+%  addpath('optical_flow_celiu/mex/');
 
 overwrite = false;
 
