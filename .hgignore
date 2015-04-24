@@ -9,13 +9,10 @@ tmp/*
 results/*
 data/*
 mex/bin/*.mexa64
-external/liblinear-1.94/blas/*
-external/liblinear-1.94/matlab/*
-external/liblinear-1.94/predict
-external/liblinear-1.94/train
 external/lightspeed/*.mexa64
 external/GCO/matlab/bin/gco_matlab.mexa64
 external/lightspeed/@double/gammaln.mexa64
 external/lightspeed/librandom.so
 external/TSP/mex/*.mexa64
 external/TSP/optical_flow_celiu/mex/*.mexa64
+external/Shu/BoW_code/*.mexa64
