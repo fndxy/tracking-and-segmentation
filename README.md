@@ -35,11 +35,9 @@ Now all should be set up. You can start the tracker with.
     
 
 The first run will take some time because certain auxiliary structures
-need to be recomputed. Subsequent calls will be much faster.
-
-Note that both discrete inference 
-and continuous minimization may lead to slightly different final results, depending on the current 
-software environment and hardware architecture.
+need to be recomputed. Subsequent calls will be much faster. The provided
+parameter values have not been optimized and need to be adjusted for the
+test data.
     
     
     
