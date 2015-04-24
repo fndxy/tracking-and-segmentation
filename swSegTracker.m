@@ -19,7 +19,8 @@ addpath(genpath('./utils'))
 addpath(genpath('./external'))
 
 % get scene information and parameters
-sceneInfo = parseScene(p.Results.scene);
+sceneFile = p.Results.scene;
+sceneInfo = parseScene(sceneFile);
 opt=parseOptions(p.Results.params);
 
 stateInfo = [];
@@ -30,15 +31,18 @@ allframeNums=sceneInfo.frameNums;
 FF=length(allframeNums);
 fromframe=1; toframe=min(FF,opt.winSize);
 wincnt=0;allwins=[];
+allstInfo=[];
 while toframe<=FF
     wincnt=wincnt+1;
-    fprintf('Working on subwindow... from %4d to %4d = %4d frames\n',fromframe,toframe,length(fromframe:toframe));    
-   
+    fprintf('Working on subwindow... from %4d to %4d = %4d frames\n',fromframe,toframe,length(fromframe:toframe));
+    
     opt.frames=fromframe:toframe;
     
     % DO TRACKING ON SUBWINDOR HERE
-    stateInfo=segTracking(scen,opt);
+    stateInfo=segTracking(sceneFile,opt);
     
+    allstInfo=[allstInfo stateInfo];
+    allwins(wincnt,:)=[fromframe, toframe];
     
     
     % now adjust new time frame
@@ -56,7 +60,17 @@ while toframe<=FF
     end
 end
 
-% TODO
-
 %% finish up
+sceneInfo = parseScene(sceneFile);
+detections=parseDetections(sceneInfo,opt);
+K= opt.nSP;
+
+% superpixel info
+spfile=sprintf('sp-K%d.mat',K);
+load(fullfile(sceneInfo.imgFolder,spfile));
+
+stateInfo=stitchTempWins(allstInfo,allwins,detections,sp_labels);
+stateInfo.frameNums=uint16(stateInfo.frameNums);
+stateInfo.splabeling=uint16(stateInfo.splabeling);
+stateInfo.detlabeling=uint16(stateInfo.detlabeling);
 

@@ -1,4 +1,4 @@
-% function stateInfo=segTracking(sceneInfo,opt)
+function stateInfo=segTracking(sceneFile,opt)
 % This code accompanies the publication
 %
 % Joint Tracking and Segmentation of Multiple Targets
@@ -39,7 +39,7 @@ F=length(frames);
 rng(1); 
 
 % get info about sequence
-% sceneInfo=getSceneInfo(scenario);
+sceneInfo = parseScene(sceneFile);
 sceneInfo.frameNums=sceneInfo.frameNums(frames);
 
 
@@ -398,7 +398,7 @@ end
 % bglabel=nLabels;
 
 % uncoment to visualize
-%     visResult2
+visResult2(stateInfo,sp_labels,iminfo)
 
 
 % allens=0;

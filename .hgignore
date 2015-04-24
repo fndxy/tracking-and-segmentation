@@ -6,8 +6,8 @@ tmp/*
 *.bmp
 *.o
 
-logs/*
 results/*
+data/*
 mex/bin/*.mexa64
 external/liblinear-1.94/blas/*
 external/liblinear-1.94/matlab/*

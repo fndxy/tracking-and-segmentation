@@ -1,6 +1,6 @@
 %% installs all necessary dependencies
 % Required:
-%   - configured mex compiler
+%   - configured mex c++ compiler
 %   - internet connection
 
 format compact;
@@ -23,25 +23,6 @@ end
 
 
 %%
-%%%%%%%%%%%%%%%%%%
-%%%% MOT Utils %%%
-%%%%%%%%%%%%%%%%%%
-try
-    fprintf('Installing MOT Utils...');
-    if ~exist('../motutils','dir')
-        cd ..
-        !hg clone -v https://bitbucket.org/amilan/motutils
-        cd(segdir);
-        fprintf('Success!\n');
-    else
-        fprintf('IGNORE. Already exist\n');
-    end
-    
-catch err
-    fprintf('FAILED: MOT Utils not installed! %s\n',err.message);
-    nerrors=nerrors+1;
-end
-
 %%%%%%%%%%%%%%%
 %%%%%% GCO %%%%
 %%%%%%%%%%%%%%%
@@ -51,8 +32,6 @@ try
         cd external
         mkdir('GCO')
         cd GCO
-        urlwrite('http://vision.csd.uwo.ca/code/gco-v3.0.zip','gco-v3.0.zip');
-        unzip('gco-v3.0.zip');
         cd matlab
         GCO_BuildLib
         
@@ -65,22 +44,18 @@ try
 catch err
     fprintf('FAILED: GCO not installed! %s\n',err.message);
     nerrors=nerrors+1;
-    segdir
+    cd(segdir)
 end
 
+%%
 %%%%%%%%%%%%%%%%%%
 %%% LIGHTSPEED %%%
 %%%%%%%%%%%%%%%%%%
 % This one is optional
 try
-    fprintf('Installing Lightspeed...');
-    if ~exist('external/lightspeed','dir')
+    fprintf('Installing Lightspeed...\n');
+    if ~exist(['external/lightspeed/@double/gammaln.',mexext],'file')
         cd external
-        mkdir('lightspeed')
-        cd lightspeed
-        urlwrite('http://ftp.research.microsoft.com/downloads/db1653f0-1308-4b45-b358-d8e1011385a0/lightspeed.zip', ...
-            'lightspeed.zip');
-        unzip('lightspeed.zip');
         cd lightspeed
         install_lightspeed;
         cd(segdir);
@@ -93,11 +68,85 @@ try
 catch err
     fprintf('FAILED: Lightspeed not installed! %s\n',err.message);
     nerrors=nerrors+1;
-    segdir
+    cd(segdir)
+end
+
+%%
+%%%%%%%%%%%%%%%%%%
+%%% liblinear %%%
+%%%%%%%%%%%%%%%%%%
+% This one is optional
+try
+    fprintf('Installing liblinear-1.94...\n');
+    if ~exist(['external/liblinear-1.94/matlab/predict.',mexext],'file')
+        cd external/liblinear-1.94/matlab
+        make;
+        assert(lsvmerr==0);
+        cd(segdir);
+        
+        
+        fprintf('Success!\n');
+    else
+        fprintf('IGNORE. Already exist\n');
+    end
+    
+catch err
+    fprintf('FAILED: liblinear not installed! %s\n',err.message);
+    nerrors=nerrors+1;
+    cd(segdir)
+end
+
+%%
+%%%%%%%%%%%%%%%%%%
+%%% kmeans %%%
+%%%%%%%%%%%%%%%%%%
+try
+    fprintf('Installing vgg_kmiter\n');
+    if ~exist(['external/Shu/BoW_code/vgg_kmiter.',mexext],'file')
+        cd external/Shu/BoW_code
+        mex vgg_kmiter.cxx
+        cd(segdir);
+        
+        fprintf('Success!\n');
+    else
+        fprintf('IGNORE. Already exist\n');
+    end
+    
+catch err
+    fprintf('FAILED: vgg_kmiter not installed! %s\n',err.message);
+    nerrors=nerrors+1;
+    cd(segdir)
+end
+
+%%
+%%%%%%%%%%%%%%%%%%%%%%% 
+%%% TUD-Campus DATA %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+try
+    fprintf('get data for TUD-Campus\n');
+    if ~exist('data/TUD-Campus/','dir')
+        if ~exist('TUD-Campus.zip','file')
+            fprintf('Downloading...\n');
+            urlwrite('http://localhost/tmp/TUD-Campus.zip','TUD-Campus.zip');
+        end
+            
+        
+        unzip('TUD-Campus.zip','data/');
+        
+        
+        fprintf('Success!\n');
+    else
+        fprintf('IGNORE. Already exist\n');
+    end
+    
+catch err
+    fprintf('FAILED: Could not get data! %s\n',err.message);
+    nerrors=nerrors+1;
+    cd(segdir)
 end
 
 
-
+%%
 if ~nerrors
     fprintf('SegTracker installed with no errors\n');
 else
