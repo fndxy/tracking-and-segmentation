@@ -20,20 +20,22 @@ Get the latest version of the code and cd into that directory
     cd segtracking
     
 
-    
+Start Matlab and run
+
+	installSegTracker;
     
         
 Running
 =======
 
-Start Matlab and run
-
-	installSegTracker;
 	
 Now all should be set up. You can start the tracker with.
 
     stateInfo = swSegTracker('config/scene.ini','config/params.ini');
     
+
+The first run will take some time because certain auxiliary structures
+need to be recomputed. Subsequent calls will be much faster.
 
 Note that both discrete inference 
 and continuous minimization may lead to slightly different final results, depending on the current 
