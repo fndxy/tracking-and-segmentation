@@ -20,7 +20,6 @@ global sceneInfo detections gtInfo
 stStartTime=tic;
 
 % scenario=25;
-scenario=sceneInfo.scenario;
 
 % parameters
 % if nargin>0, scenario=scen; end
@@ -40,6 +39,8 @@ rng(1);
 
 % get info about sequence
 sceneInfo = parseScene(sceneFile);
+scenario=sceneInfo.scenario;
+
 sceneInfo.frameNums=sceneInfo.frameNums(frames);
 
 
