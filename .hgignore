@@ -1,0 +1,19 @@
+syntax: glob
+vis/*
+tmp/*
+TUD-Campus.zip
+*.m~
+*.gif
+*.bmp
+*.o
+
+results/*
+data/*
+mex/bin/*.mexa64
+external/lightspeed/*.mexa64
+external/GCO/matlab/bin/gco_matlab.mexa64
+external/lightspeed/@double/gammaln.mexa64
+external/lightspeed/librandom.so
+external/TSP/mex/*.mexa64
+external/TSP/optical_flow_celiu/mex/*.mexa64
+external/Shu/BoW_code/*.mexa64
