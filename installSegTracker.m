@@ -130,7 +130,7 @@ try
             urlwrite('http://research.milanton.net/segtracking/TUD-Campus.zip','TUD-Campus.zip');
         end
             
-        
+        fprintf('unzipping...\n');
         unzip('TUD-Campus.zip','data/');
         
         
