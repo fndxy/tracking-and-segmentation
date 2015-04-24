@@ -126,8 +126,8 @@ try
     fprintf('get data for TUD-Campus\n');
     if ~exist('data/TUD-Campus/','dir')
         if ~exist('TUD-Campus.zip','file')
-            fprintf('Downloading...\n');
-            urlwrite('http://localhost/tmp/TUD-Campus.zip','TUD-Campus.zip');
+            fprintf('Downloading... (638.0 MB)\n');
+            urlwrite('http://research.milanton.net/segtracking/TUD-Campus.zip','TUD-Campus.zip');
         end
             
         

@@ -74,3 +74,10 @@ stateInfo.frameNums=uint16(stateInfo.frameNums);
 stateInfo.splabeling=uint16(stateInfo.splabeling);
 stateInfo.detlabeling=uint16(stateInfo.detlabeling);
 
+try
+    gtInfo=convertTXTToStruct(sceneInfo.gtFile);
+    printFinalEvaluation(stateInfo, gtInfo, sceneInfo, struct('track3d',char(howToTrack(sceneInfo.scenario))));
+catch err
+    fprintf('Evaluation failed. %s\n',err.message);
+end
+
