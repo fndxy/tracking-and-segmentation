@@ -1,4 +1,4 @@
-function Dcost=getSegUnariesOF(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany)
+function Dcost=getSegUnariesOF(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany,opt)
 % unaries according to optic flow (super-tubes)
 
 nVars=length(Q);
@@ -25,7 +25,7 @@ dhyps=getBBoxesFromHyps(dHyps,F);
                 
 allnorms=sqrt(ISall(:,9).^2+ISall(:,10).^2);
 
-global opt
+% global opt
 load(opt.objMaskFile);
 
 [mH,mW]=size(objMask);

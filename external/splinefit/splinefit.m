@@ -949,7 +949,8 @@ res=(A'*x-b').^2;
 f=sum(res(:));
 
 function f = l1normwc(x,A,b,breaks,n,pieces,base,dim,xpt)
-global opt
+global glopt
+opt=glopt;
 res=abs(A'*x-b');
 f=sum(res(:));
 u=x';
@@ -973,7 +974,8 @@ f=f + p*sum(spc);
 
 
 function f = l1normwcws(x,A,b,breaks,n,pieces,base,dim,xpt)
-global opt sceneInfo
+global glopt sceneInfo
+opt=glopt;
 
 res=abs(A'*x-b');
 f=sum(res(:));

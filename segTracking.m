@@ -14,7 +14,7 @@ function stateInfo=segTracking(sceneFile,opt)
 
 
 % global scenario gtInfo opt detections stStartTime htobj labdet
-global sceneInfo detections gtInfo
+global sceneInfo detections gtInfo glopt
 
 %% prepare
 stStartTime=tic;
@@ -110,6 +110,8 @@ end
 if ~isfield(opt,'aspectRatio')
     opt.aspectRatio=5/12;
 end
+
+glopt=opt;
 
 %% print initial infos
 printHeader(sceneInfo,scenario,1);

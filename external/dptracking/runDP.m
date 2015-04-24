@@ -113,7 +113,7 @@ end
 
 % bboxes_tracked
 % sceneInfo
-stateInfo=boxesToStateInfo(bboxes_tracked,sceneInfo);
+stateInfo=boxesToStateInfo(bboxes_tracked,sceneInfo,myopt);
 
 stateInfo=postProcessState(stateInfo,sceneInfo,myopt);
 stateInfo.sceneInfo=sceneInfo;

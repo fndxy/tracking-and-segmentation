@@ -34,7 +34,7 @@ SN(end+1:end+size(DcostD,2),end+1:end+size(DcostD,2))=0; % empty connections for
 TN(end+1:end+size(DcostD,2),end+1:end+size(DcostD,2))=0;
 
 
-DN=buildDetSPConnections(SN, DcostS, detections, F, ISall);
+DN=buildDetSPConnections(SN, DcostS, detections, F, ISall,opt);
 
 Nhood.SN=SN; Nhood.TN=TN; Nhood.DN=DN;
 

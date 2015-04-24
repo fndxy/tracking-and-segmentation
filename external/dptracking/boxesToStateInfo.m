@@ -1,6 +1,6 @@
-function stateInfo=boxesToStateInfo(bboxes_tracked,sceneInfo)
+function stateInfo=boxesToStateInfo(bboxes_tracked,sceneInfo, opt)
 
-global opt
+% global opt
 stateInfo.frameNums=sceneInfo.frameNums;
 stateInfo.F=length(stateInfo.frameNums);
 

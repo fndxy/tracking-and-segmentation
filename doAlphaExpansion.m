@@ -1,12 +1,12 @@
 function [E, D, S, L, labeling] = ...
-    doAlphaExpansion(Dcost, Scost, Lcost, Neighborhood)
+    doAlphaExpansion(Dcost, Scost, Lcost, Neighborhood, opt)
 
 % minimize E(f,T) wrt. f by alpha expansion
 % Note: This only works for submodular energies
 % 
 % The gco code is available at
 % http://vision.csd.uwo.ca/code/
-global opt
+% global opt
 prune=opt.prune;
 
 [nLabels, nPoints]=size(Dcost);

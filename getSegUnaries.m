@@ -44,8 +44,8 @@ end
 
 % save('tmploop.mat','ISall','insideany','hyps','sp_labels','iminfo','Q','F','sPerFrame','hypotheses');
 % pause
-DcostOF=getSegUnariesOF(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany);
-DcostCol=getSegUnariesCol(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany);
+DcostOF=getSegUnariesOF(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany,opt);
+DcostCol=getSegUnariesCol(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany,opt);
 
 lambda=opt.unaryOFFactor;
 % TODO: this is actually a free parameter

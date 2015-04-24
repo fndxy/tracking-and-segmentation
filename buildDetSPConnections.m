@@ -1,8 +1,8 @@
-function DN=buildDetSPConnections(SN, DcostS, detections, F, ISall)
+function DN=buildDetSPConnections(SN, DcostS, detections, F, ISall,opt)
 
 %%
 
-global opt
+% global opt
 load(opt.objMaskFile);
 
 [mH,mW]=size(objMask);

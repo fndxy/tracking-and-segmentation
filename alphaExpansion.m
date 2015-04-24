@@ -15,7 +15,7 @@ opt.pairwiseFactor=opt.pwSSP;
 
 % if ~opt.PWLcost
     [Eogm, D, S, L, logm] = ...
-        doAlphaExpansion(Dcost, Scost, Lcost, triu(PottsNeighbors));
+        doAlphaExpansion(Dcost, Scost, Lcost, triu(PottsNeighbors),opt);
     return;
 % end
 

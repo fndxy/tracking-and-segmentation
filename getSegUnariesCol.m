@@ -1,6 +1,6 @@
-function Dcost=getSegUnariesCol(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany)
+function Dcost=getSegUnariesCol(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany,opt)
 
-global opt
+% global opt
 
 if opt.nolog
     Dcost=getSegUnariesColNOLOG(Q,hypotheses,hyps,sp_labels,iminfo,F,ISall,sPerFrame,insideany);
