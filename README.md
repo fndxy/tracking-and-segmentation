@@ -62,3 +62,9 @@ Please do not forget to cite our work if you end up using this code:
 	Title = {Joint Tracking and Segmentation of Multiple Targets},
 	Year = {2015}
     }
+    
+    
+CHANGES
+-------
+
+	Apr 24, 2015	Initial public release
