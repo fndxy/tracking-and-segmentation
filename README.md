@@ -64,7 +64,13 @@ Please do not forget to cite our work if you end up using this code:
     }
     
     
-CHANGES
+Changes
 -------
 
 	Apr 24, 2015	Initial public release
+	
+	
+License
+-------
+
+	MIT
