@@ -72,5 +72,8 @@ Changes
 	
 License
 -------
+The current work is licensed under the MIT licese.
 
-	MIT
+IMPORTANT: All external libraries (in ./external) are included for convenience
+and may follow a different license! Please be aware of the individual 
+packages if you use this code.
