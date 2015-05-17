@@ -73,7 +73,7 @@ end
 
 %%
 %%%%%%%%%%%%%%%%%%
-%%% kmeans %%%
+%%% TSP %%%
 %%%%%%%%%%%%%%%%%%
 try
     fprintf('Installing TSP\n');
