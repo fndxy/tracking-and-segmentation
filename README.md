@@ -14,6 +14,10 @@ Installation
 
 This section describes how to get segTracking running on linux.
 
+Install the required dependencies
+
+    sudo apt-get install libgsl0ldbl
+
 Get the latest version of the code and cd into that directory
 
     hg clone https://bitbucket.org/amilan/segtracking
