@@ -152,7 +152,7 @@ for t=1:F
         end
         if t==1, Ifin(1:50,1:50,:)=0; end % new batch
         if t==F, Ifin(1:50,1:50,:)=1; end % end batch
-        imwrite(Ifin,sprintf('tmp/res/s%02d-f%04d.jpg',scenario,sceneInfo.frameNums(t)));
+        imwrite(Ifin,sprintf('tmp/res/s%02d-f%04d.jpg',sceneInfo.scenario,sceneInfo.frameNums(t)));
     end
     pause(.01);
 end
