@@ -9,7 +9,7 @@ function stateInfo=segTracking(sceneFile,opt)
 % addpath(genpath('./motutils'))
 % addpath(genpath('./external'))
 % addpath(genpath('./opengm'))
-% addpath(genpath('./mex'))
+addpath(genpath('./mex'))
 
 
 
