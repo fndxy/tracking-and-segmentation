@@ -71,6 +71,7 @@ Please do not forget to cite our work if you end up using this code:
 Changes
 -------
 
+	Jun 17, 2015	Small big fix with addpath (thanks Qi)
 	Apr 24, 2015	Initial public release
 	
 	
