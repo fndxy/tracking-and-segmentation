@@ -16,7 +16,12 @@ This section describes how to get segTracking running on linux.
 
 Install the required dependencies
 
-    sudo apt-get install libgsl0ldbl
+    sudo apt-get install libgsl0ldbl # Ubuntu
+
+or
+
+    sudo dnf install gsl-devel # Fedora
+
 
 Get the latest version of the code and cd into that directory
 
